@@ -1,6 +1,6 @@
 # NOMAD AI LAB
 
-Cloudflare Workers Static Assets deployment of the LP previously hosted at
+Cloudflare Pages deployment of the LP previously hosted at
 https://ai-web-creator.netlify.app/.
 
 Source baseline: `diamond0307-ctrl/AI_creator` commit
@@ -23,34 +23,40 @@ or runtime secret. Unknown paths return 404; this LP has no client-side path rou
 
 ## Deployment status
 
-The static-asset deployment is live at
-https://lab-ai.art-4-being0801.workers.dev/.
+The production URL is
+https://ai-lab-session.pages.dev/.
 GitHub automatic deployments are connected to this repository's `main` branch.
 Every push runs the existing tests and production build before deployment.
-The new hostname has been added to the existing Meta Pixel traffic allowlist;
-live PageView, Lead, and LineClick delivery has been confirmed with HTTP 200
-and processed events in Meta Events Manager on 2026-11-09.
+When changing the hostname, add it to the existing Meta Pixel traffic allowlist
+and verify live PageView, Lead, and LineClick delivery before reporting completion.
 
 ## Cloudflare GitHub integration
 
 - Repository: `diamond0307-ctrl/nomad-ai-lab`
-- Worker name: `lab-ai`
+- Pages project: `ai-lab-session`
 - Production branch: `main`
 - Root directory: `/`
 - Build command: `npm test && npm run build`
-- Deploy command: `npx wrangler deploy`
+- Build output directory: `dist`
+- Deployment: native Cloudflare Pages GitHub integration
 - Preview builds: disabled
 - Build/runtime variables: none required
-- Public URL: https://lab-ai.art-4-being0801.workers.dev/
+- Public URL: https://ai-lab-session.pages.dev/
 
-The Worker was renamed from `nomad-ai-lab` to `lab-ai` on 2026-11-09 at the
-owner's request. The GitHub repository remains `diamond0307-ctrl/nomad-ai-lab`.
+The owner selected Cloudflare Pages and this hostname on 2026-11-09.
+The GitHub repository remains `diamond0307-ctrl/nomad-ai-lab`.
+The previous Worker `lab-ai` remains online at
+https://lab-ai.art-4-being0801.workers.dev/, with its automatic builds disabled.
+The separate `ai-creator` Worker and original Netlify site are unchanged.
 
-Cloudflare Workers Builds installs dependencies from the lockfile and deploys
+Cloudflare Pages installs dependencies from the lockfile and deploys
 when commits are pushed to this repository's `main` branch. Build authentication
 is managed in Cloudflare; no Cloudflare API token is stored in this repository.
 Wrangler is pinned in the lockfile. `.env*`, `.dev.vars*`, `.wrangler/`, build
 output, and dependency directories are ignored.
+
+`public/404.html` preserves genuine 404 responses for unknown paths instead of
+Pages' default single-page-app fallback. No redirect or tracking logic is changed.
 
 ## Preserved attribution
 

@@ -3,8 +3,9 @@
 ## 公開先（2026-11-09 本人指定）
 
 このLPの修正元は `diamond0307-ctrl/nomad-ai-lab`。リポジトリ名は変更しない。
-`main` へのpushでCloudflare Worker `lab-ai` に自動公開する。
-本番URLは `https://lab-ai.art-4-being0801.workers.dev/`。
+`main` へのpushでCloudflare Pages `ai-lab-session` に自動公開する。
+本番URLは `https://ai-lab-session.pages.dev/`。
+旧Worker `lab-ai` は公開を維持するが、自動ビルドは無効。今後の更新先はPagesとする。
 旧リポジトリ `AI_creator`、既存Worker `ai-creator`、旧Netlifyサイトは変更・停止しない。
 URL変更時もLINEのUTM分岐とGA4/Meta計測を維持し、Metaの許可ドメインと実送信を確認する。
 

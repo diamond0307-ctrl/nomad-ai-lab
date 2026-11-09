@@ -1,10 +1,6 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
-  "name": "lab-ai",
+  "name": "ai-lab-session",
   "compatibility_date": "2026-11-09",
-  "workers_dev": true,
-  "preview_urls": false,
-  "assets": {
-    "directory": "./dist"
-  }
+  "pages_build_output_dir": "./dist"
 }

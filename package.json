@@ -7,7 +7,7 @@
     "build": "vite build && cp -R output dist/output && node scripts/prerender.mjs",
     "preview": "vite preview --host 127.0.0.1",
     "test": "node --test test/*.test.mjs",
-    "deploy": "npm run build && wrangler deploy"
+    "deploy": "npm test && npm run build && wrangler pages deploy dist --project-name ai-lab-session --branch main"
   },
   "dependencies": {
     "html-react-parser": "^5.2.10",
