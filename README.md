@@ -25,7 +25,8 @@ or runtime secret. Unknown paths return 404; this LP has no client-side path rou
 
 The initial static-asset deployment is live at
 https://nomad-ai-lab.art-4-being0801.workers.dev/.
-GitHub automatic deployments are pending the GitHub App connection described below.
+GitHub automatic deployments are connected to this repository's `main` branch.
+Every push runs the existing tests and production build before deployment.
 The new hostname has been added to the existing Meta Pixel traffic allowlist;
 live PageView, Lead, and LineClick delivery has been confirmed with HTTP 200
 and processed events in Meta Events Manager on 2026-11-09.
@@ -38,12 +39,13 @@ and processed events in Meta Events Manager on 2026-11-09.
 - Root directory: `/`
 - Build command: `npm test && npm run build`
 - Deploy command: `npx wrangler deploy`
+- Preview builds: disabled
 - Build/runtime variables: none required
 - Public URL: https://nomad-ai-lab.art-4-being0801.workers.dev/
 
-Once connected, Cloudflare Workers Builds installs dependencies from the lockfile
-and deploys when commits are pushed to this repository's `main` branch. Configure
-the GitHub connection in Cloudflare; do not store a Cloudflare API token in this repository.
+Cloudflare Workers Builds installs dependencies from the lockfile and deploys
+when commits are pushed to this repository's `main` branch. Build authentication
+is managed in Cloudflare; no Cloudflare API token is stored in this repository.
 Wrangler is pinned in the lockfile. `.env*`, `.dev.vars*`, `.wrangler/`, build
 output, and dependency directories are ignored.
 
