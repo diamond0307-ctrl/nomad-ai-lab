@@ -3,6 +3,7 @@
   "name": "lab-ai",
   "compatibility_date": "2026-11-09",
   "workers_dev": true,
+  "preview_urls": false,
   "assets": {
     "directory": "./dist"
   }
