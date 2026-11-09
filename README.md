@@ -21,6 +21,15 @@ Vite builds React and the prerender script generates the initial HTML.
 Only `dist/` is uploaded. There is no Worker script, server function, database,
 or runtime secret. Unknown paths return 404; this LP has no client-side path router.
 
+## Deployment status
+
+The initial static-asset deployment is live at
+https://nomad-ai-lab.art-4-being0801.workers.dev/.
+GitHub automatic deployments are pending the GitHub App connection described below.
+The new hostname has been added to the existing Meta Pixel traffic allowlist;
+live PageView, Lead, and LineClick delivery has been confirmed with HTTP 200
+and processed events in Meta Events Manager on 2026-11-09.
+
 ## Cloudflare GitHub integration
 
 - Repository: `diamond0307-ctrl/nomad-ai-lab`
@@ -32,9 +41,9 @@ or runtime secret. Unknown paths return 404; this LP has no client-side path rou
 - Build/runtime variables: none required
 - Public URL: https://nomad-ai-lab.art-4-being0801.workers.dev/
 
-Cloudflare Workers Builds installs dependencies from the lockfile and deploys
-when commits are pushed to this repository's `main` branch. Configure the GitHub
-connection in Cloudflare; do not store a Cloudflare API token in this repository.
+Once connected, Cloudflare Workers Builds installs dependencies from the lockfile
+and deploys when commits are pushed to this repository's `main` branch. Configure
+the GitHub connection in Cloudflare; do not store a Cloudflare API token in this repository.
 Wrangler is pinned in the lockfile. `.env*`, `.dev.vars*`, `.wrangler/`, build
 output, and dependency directories are ignored.
 
