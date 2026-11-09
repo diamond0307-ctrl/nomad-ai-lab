@@ -23,8 +23,8 @@ or runtime secret. Unknown paths return 404; this LP has no client-side path rou
 
 ## Deployment status
 
-The initial static-asset deployment is live at
-https://nomad-ai-lab.art-4-being0801.workers.dev/.
+The static-asset deployment is live at
+https://lab-ai.art-4-being0801.workers.dev/.
 GitHub automatic deployments are connected to this repository's `main` branch.
 Every push runs the existing tests and production build before deployment.
 The new hostname has been added to the existing Meta Pixel traffic allowlist;
@@ -34,14 +34,17 @@ and processed events in Meta Events Manager on 2026-11-09.
 ## Cloudflare GitHub integration
 
 - Repository: `diamond0307-ctrl/nomad-ai-lab`
-- Worker name: `nomad-ai-lab`
+- Worker name: `lab-ai`
 - Production branch: `main`
 - Root directory: `/`
 - Build command: `npm test && npm run build`
 - Deploy command: `npx wrangler deploy`
 - Preview builds: disabled
 - Build/runtime variables: none required
-- Public URL: https://nomad-ai-lab.art-4-being0801.workers.dev/
+- Public URL: https://lab-ai.art-4-being0801.workers.dev/
+
+The Worker was renamed from `nomad-ai-lab` to `lab-ai` on 2026-11-09 at the
+owner's request. The GitHub repository remains `diamond0307-ctrl/nomad-ai-lab`.
 
 Cloudflare Workers Builds installs dependencies from the lockfile and deploys
 when commits are pushed to this repository's `main` branch. Build authentication
