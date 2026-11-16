@@ -20,3 +20,8 @@
   .vol2-info .hero-html-cta{max-width:500px;margin:auto;min-height:53px}
   .vol2-scroll{margin:7px 0 0;text-shadow:0 1px 5px #000}
 }
+
+/* Keep the hero CTA label centered between equal icon columns. */
+.vol2-info .hero-html-cta{grid-template-columns:47px minmax(0,1fr) 47px}
+.vol2-info .hero-html-cta>b{justify-self:center}
+@media(max-width:850px){.vol2-info .hero-html-cta{grid-template-columns:35px minmax(0,1fr) 35px}}
